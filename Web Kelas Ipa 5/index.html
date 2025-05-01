@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kenangan SMA</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+      }
+      body {
+        background-color: #0a0a0a;
+        color: #fff;
+      }
+      .navbar {
+        background: #111;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(255,255,255,0.05);
+      }
+      .navbar .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #ffda77;
+        text-shadow: 0 0 8px rgba(255,255,255,0.3);
+      }
+      .navbar nav a {
+        margin-left: 20px;
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      .navbar nav a:hover {
+        color: #fff;
+      }
+      .banner {
+        position: relative;
+        overflow: hidden;
+      }
+      .banner-image {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+        filter: brightness(60%);
+      }
+      .banner-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #fff;
+        animation: fadeIn 2s ease-out;
+      }
+      .banner-content h1 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        text-shadow: 0 0 12px rgba(255,255,255,0.3);
+      }
+      .banner-content p {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+      }
+      .banner-buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        align-items: center;
+      }
+      .btn {
+        background-color: #ffda77;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 25px;
+        color: #000;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        transition: transform 0.3s;
+      }
+      .btn:hover {
+        transform: scale(1.05);
+      }
+      .btn-secondary {
+        background-color: transparent;
+        border: 2px solid #ffda77;
+        color: #ffda77;
+      }
+      #toggle-music {
+        background: none;
+        border: none;
+        color: #fff;
+        font-size: 24px;
+        cursor: pointer;
+      }
+      .photo-section {
+        padding: 60px 20px;
+        background-color: #111;
+        text-align: center;
+      }
+      .photo-section h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+        color: #ffda77;
+      }
+      .photo-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 0 20px;
+      }
+      .photo-row img {
+        width: 220px;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        transition: transform 0.4s ease;
+        cursor: pointer;
+      }
+      .photo-row img:hover {
+        transform: scale(1.05);
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="logo">Spassive</div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">Kegiatan</a>
+        <a href="#">Acara</a>
+        <a href="#">Wisuda</a>
+        <a href="#">Teman</a>
+      </nav>
+    </header>
+
+    <section class="banner">
+      <img
+        src="Foto Perpisahan/Perpisahan1.jpg"
+        alt="Banner"
+        class="banner-image"
+      />
+      <div class="banner-content">
+        <h1>Unforgettable memories</h1>
+        <p>Kebersamaan kita, tawa, dan cerita di masa putih abu-abu.</p>
+        <div class="banner-buttons">
+          <a href="liihatfoto.html" class="btn">Lihat Foto</a>
+          <button class="btn btn-secondary">Info</button>
+          <audio id="bg-music" src="Musik/Hindia.mp3" autoplay loop></audio>
+          <button id="toggle-music">🔊</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="photo-section">
+      <h2>Karena Kita Pernah Bersama</h2>
+      <div class="photo-row" id="photoRow">
+        <!-- Foto-foto akan dimasukkan lewat JS -->
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+      ScrollReveal().reveal(".photo-row", {
+        interval: 100,
+        distance: "20px",
+        origin: "bottom",
+        opacity: 0,
+        duration: 800,
+        reset: true,
+      });
+
+      const toggleBtn = document.getElementById("toggle-music");
+      const music = document.getElementById("bg-music");
+      let playing = true;
+      toggleBtn.onclick = () => {
+        if (playing) {
+          music.pause();
+          toggleBtn.textContent = "🔇";
+        } else {
+          music.play();
+          toggleBtn.textContent = "🔊";
+        }
+        playing = !playing;
+      };
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>

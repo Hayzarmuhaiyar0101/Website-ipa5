@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #111;
+  color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: red;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-content {
+  position: absolute;
+  top: 30%;
+  left: 50px;
+  max-width: 500px;
+}
+
+.banner-content h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.banner-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.banner-buttons .btn {
+  padding: 10px 20px;
+  margin-right: 10px;
+  background: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-secondary {
+  background: rgba(109, 109, 110, 0.7);
+  color: white;
+}
+
+.photo-section {
+  padding: 20px;
+}
+
+.photo-section h2 {
+  margin-bottom: 10px;
+}
+
+.photo-row {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+}
+
+.photo-row::-webkit-scrollbar {
+  height: 8px;
+}
+
+.photo-row::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.photo-card {
+  min-width: 200px;
+  flex-shrink: 0;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 5px;
+
+  .photo-row {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    padding: 20px;
+    background-color: #111;
+    position: relative;
+  }
+
+  .photo-row .photo-track {
+    display: flex;
+    gap: 15px;
+    animation: scroll 20s linear infinite;
+  }
+
+  .photo-row {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 20px;
+  }
+
+  .photo-row img {
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* Efek saat hover */
+  .photo-row img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .banner-background {
+    background-image: url("Foto Bukber/Bukber2.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    filter: brightness(70%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    animation: zoomEffect 20s ease-in-out infinite alternate;
+  }
+
+  /* Definisi animasinya */
+  @keyframes zoomEffect {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1); /* Zoom 10% */
+    }
+  }
+}
+

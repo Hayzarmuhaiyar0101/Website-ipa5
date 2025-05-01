@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memories</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", sans-serif;
+        background-color: #000;
+        color: #fff;
+      }
+
+      header {
+        padding: 20px;
+        text-align: center;
+        font-size: 1.8rem;
+        font-weight: bold;
+        background-color: #111;
+      }
+
+      .hero {
+        position: relative;
+        height: 60vh;
+        background: url("Foto Perpisahan/Perpisahan4.jpg") center/cover
+          no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 40px;
+        background-blend-mode: overlay;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, #000, transparent 60%);
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 600px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin: 0;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin: 10px 0 20px;
+      }
+
+      .hero .buttons {
+        display: flex;
+        gap: 12px;
+      }
+
+      .btn {
+        background: white;
+        color: black;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .music-control {
+  margin-top: 20px;
+}
+
+      .btn.secondary {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 1px solid #fff;
+      }
+
+      .carousel-section {
+        padding: 30px 20px;
+      }
+
+      .carousel-title {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+      }
+
+      .carousel {
+        display: flex;
+        overflow-x: auto;
+        gap: 12px;
+        scroll-snap-type: x mandatory;
+      }
+
+      .carousel::-webkit-scrollbar {
+        display: none;
+      }
+
+      .carousel img {
+        flex: 0 0 auto;
+        width: 200px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 8px;
+        scroll-snap-align: start;
+        transition: transform 0.3s;
+        cursor: pointer;
+      }
+
+      .carousel img:hover {
+        transform: scale(1.05);
+      }
+
+      footer {
+        background-color: #111;
+        color: #aaa;
+        text-align: center;
+        padding: 15px;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>📸 the best memories</header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="music-control">
+          <button id="toggleMusic" class="btn secondary">🔊 Musik</button>
+          <audio id="bgMusic" src="Musik/kenangan manis.mp3" autoplay loop></audio>
+        </div>
+
+        <h1>Kenangan Tak Terlupakan</h1>
+        <p>
+          Waktu boleh berlalu, tapi tawa dan cerita kita tetap abadi dimanapun
+          kalian berada,senang bertemu dengan kalian
+        </p>
+      </div>
+    </section>
+
+    <section class="carousel-section">
+      <div class="carousel-title">Karena Kamu Menyukai Kenangan Ini</div>
+      <div class="carousel">
+        <img src="Foto Bukber/Bukber5.jpg" alt="Bukber" />
+        <img src="Kegiatan/waterboom1.jpg" alt="Waterboom" />
+        <img src="Foto Perpisahan/Perpisahan4.jpg" alt="Study Tour" />
+        <img src="Kegiatan/Nongki1.jpg" alt="Nongkrong" />
+        <img src="Foto Bukber/Bukber6.jpg" alt="Wali Kelas" />
+        <img src="Foto Perpisahan/Perpisahan3.jpg" alt="Jam Kosong" />
+      </div>
+    </section>
+
+    <footer>&copy; 2025 Kenangan SMA - Spassive</footer> 
+    <script>
+      const music = document.getElementById("bgMusic");
+      const toggleBtn = document.getElementById("toggleMusic");
+    
+      toggleBtn.addEventListener("click", () => {
+        if (music.paused) {
+          music.play();
+          toggleBtn.textContent = "🔊 Musik";
+        } else {
+          music.pause();
+          toggleBtn.textContent = "🔇 Diam";
+        }
+      });
+    </script>
+    
+  </body>
+</html>
